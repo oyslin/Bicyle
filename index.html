@@ -1,42 +1,126 @@
 <!DOCTYPE html> 
 <html> 
 	<head> 
-	<title>My Page</title> 
+	<title>Page Title</title> 
+	
 	<meta name="viewport" content="width=device-width, initial-scale=1"> 
+
 	<link rel="stylesheet" href="resources/jquery.mobile-1.1.0-rc.1.min.css" />
 	<script src="lib/jquery-1.7.1.min.js"></script>
 	<script src="lib/jquery.mobile-1.1.0-rc.1.min.js"></script>
+	<script src="lib/jquery.mobile.subpage.js"></script>
+	<script type="text/javascript">
+		$('a[data-role="tab"]').each(function(){
+			var anchor = $(this);
+			anchor.bind('click', function(){
+				$.mobile.changePage(anchor.attr('href'), {
+					transition : none,
+					changeHash : false
+				})
+				
+				return false;				
+			});
+		});
+		
+		$('div[data-role="page"]').bind('pagebeforeshow', function(e, data){
+			$.mobile.silentScroll(0);
+		});
+	</script>
 </head> 
+
 <body> 
-
-
-
-<div data-role="page">
-	<div data-role="header" data-position="fixed">
-		<h1>My Title</h1>
-	</div><!-- /header -->
-
-	<div data-role="content">	
-		<ul data-role="listview" data-inset="true" data-filter="true">
-			<li><a href="#">Acura</a></li>
-			<li><a href="#">Audi</a></li>
-			<li><a href="#">BMW</a></li>
-			<li><a href="#">Cadillac</a></li>
-			<li><a href="#">Ferrari</a></li>
-			<li><a href="#">Acura</a></li>
-			<li><a href="#">Audi</a></li>
-			<li><a href="#">BMW</a></li>
-			<li><a href="#">Cadillac</a></li>
-			<li><a href="#">Ferrari</a></li>
-			<li><a href="#">Acura</a></li>
-			<li><a href="#">Audi</a></li>
-			<li><a href="#">BMW</a></li>
-			<li><a href="#">Cadillac</a></li>
-			<li><a href="#">Ferrari</a></li>
-		</ul>	
-	</div><!-- /content -->
-
-</div><!-- /page -->
-
+	
+	<!-- <div data-role="page">
+		<div data-role="header">
+			<h1> Header </h1>
+		</div>
+		
+		<div data-role="content">
+			<div data-role="subpage" id="page1">
+				<div class="tabContent">
+					<h1> Page 1 Content</h1>
+				</div>
+			</div>
+			<div data-role="subpage" id="page2">
+				<div class="tabContent">
+					<h1> Page 1 Content</h1>
+				</div>
+			</div>
+			<div data-role="subpage" id="page3">
+				<div class="tabContent">
+					<h1> Page 1 Content</h1>
+				</div>
+			</div>		
+	
+			
+		</div>
+		<div data-role="footer" data-position="fixed">
+			<div data-role="navbar">
+ 			<ul>
+ 				<li><a href="#page1" data-role="tab" data-icon="home" class="ui-btn-active">Page 1</a></li>
+ 				<li><a href="#page2" data-role="tab" data-icon="grid">Page 2</a></li>
+ 				<li><a href="#page3" data-role="tab" data-icon="search" >Page 3</a></li>
+ 			</ul>
+ 		</div>
+		</div>
+	</div> -->
+	
+ <div id="page_1" data-role="page">
+ 	<div data-role="header">
+ 		<h1> Page 1</h1>
+ 	</div>
+ 	<div data-role="content">
+ 		<h1> Page 1 Content</h1>
+ 	</div>
+ 	
+ 	<div data-role="footer" data-position="fixed">
+ 		<div data-role="navbar">
+ 			<ul>
+ 				<li><a href="#page_1" data-role="tab" data-icon="home" class="ui-btn-active">Page 1</a></li>
+ 				<li><a href="#page_2" data-role="tab" data-icon="grid">Page 2</a></li>
+ 				<li><a href="#page_3" data-role="tab" data-icon="search">Page 3</a></li>
+ 			</ul>
+ 		</div>
+ 	</div>
+ </div>
+ 
+  <div id="page_2" data-role="page">
+ 	<div data-role="header">
+ 		<h1> Page 2</h1>
+ 	</div>
+ 	<div data-role="content">
+ 		<h1> Page 2 Content</h1>
+ 	</div>
+ 	
+ 	<div data-role="footer" data-position="fixed">
+ 		<div data-role="navbar">
+ 			<ul>
+ 				<li><a href="#page_1" data-role="tab" data-icon="home" >Page 1</a></li>
+ 				<li><a href="#page_2" data-role="tab" data-icon="grid" class="ui-btn-active">Page 2</a></li>
+ 				<li><a href="#page_3" data-role="tab" data-icon="search">Page 3</a></li>
+ 			</ul>
+ 		</div>
+ 	</div>
+ </div>
+ 
+  <div id="page_3" data-role="page">
+ 	<div data-role="header">
+ 		<h1> Page 3</h1>
+ 	</div>
+ 	<div data-role="content">
+ 		<h1> Page 3 Content</h1>
+ 	</div>
+ 	
+ 	<div data-role="footer" data-position="fixed">
+ 		<div data-role="navbar">
+ 			<ul>
+ 				<li><a href="#page_1" data-role="tab" data-icon="home">Page 1</a></li>
+ 				<li><a href="#page_2" data-role="tab" data-icon="grid">Page 2</a></li>
+ 				<li><a href="#page_3" data-role="tab" data-icon="search" class="ui-btn-active">Page 3</a></li>
+ 			</ul>
+ 		</div>
+ 	</div>
+ </div>
+ 
 </body>
 </html>
